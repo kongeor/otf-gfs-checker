@@ -1,0 +1,21 @@
+name: otf gfs checker
+
+on: 
+  push
+  schedule:
+    - cron:  '0 22 * * *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout git repository
+        uses: actions/checkout@v3
+
+      - name: Download fonts
+        run: ./downloader.sh
+
+      - name: Checksums
+        run: sha256sum -c checksums.txt
