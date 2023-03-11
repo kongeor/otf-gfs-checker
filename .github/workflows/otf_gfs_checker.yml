@@ -1,7 +1,7 @@
 name: otf gfs checker
 
 on: 
-  push
+  push:
   schedule:
     - cron:  '0 22 * * *'
 
